@@ -1,0 +1,61 @@
+{
+  "name": "Angel-xB-Mafia-Bot",
+  "description": "The Ultimate Underworld Mafia Economy Bot mastered by ZEXX.",
+  "keywords": ["telegram", "mafia", "economy", "pyrogram", "zexx", "angel"],
+  "repository": "https://github.com/yourusername/yourrepo",
+  "stack": "container",
+  "env": {
+    "API_ID": {
+      "description": "Get this from my.telegram.org",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Get this from my.telegram.org",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Get this from @BotFather",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": "Your Telegram User ID.",
+      "required": true,
+      "value": ""
+    },
+    "OWNER_USERNAME": {
+      "description": "Your Telegram Username (without @).",
+      "required": true,
+      "value": "ZEXX_OWNER"
+    },
+    "SUPPORT_CHAT": {
+      "description": "Your Support Group link or username.",
+      "required": true,
+      "value": "https://t.me/ZEXX_SUPPORT"
+    },
+    "UPDATE_CHANNEL": {
+      "description": "Your Update Channel link.",
+      "required": true,
+      "value": "https://t.me/ZEXX_UPDATES"
+    },
+    "LOGGER_GROUP": {
+      "description": "Group ID where bot will send logs (must start with -100).",
+      "required": true,
+      "value": ""
+    },
+    "START_IMG": {
+      "description": "Telegraph or Direct Link of your Start Image.",
+      "required": true,
+      "value": "https://graph.org/file/your_image_path.jpg"
+    },
+    "MONGO_URL": {
+      "description": "Your MongoDB Database URL for saving data.",
+      "required": false
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  }
+}
