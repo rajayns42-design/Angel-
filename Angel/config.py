@@ -15,7 +15,7 @@ MONGO_URL = os.environ.get("MONGO_URL", "your_mongodb_url_here")
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "your_groq_api_key_here")
 
 # --- ᴜᴘsᴛʀᴇᴀᴍ ʀᴇᴘᴏ (For Updates) ---
-UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO", "https://github.com/yourusername/yourrepo")
+UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO", "https://github.com/rajayns42-design/Angel")
 UPSTREAM_BRANCH = os.environ.get("UPSTREAM_BRANCH", "main")
 
 # --- ᴏᴡɴᴇʀ & ʙʀᴀɴᴅɪɴɢ ---
@@ -25,8 +25,8 @@ BOT_OWNER = "ZEXX"
 BOT_NAME = "📡 Angel xẞ~"
 
 # --- ᴘᴀʏᴍᴇɴᴛ & ᴘʀᴇᴍɪᴜᴍ ---
-UPI_ID = "zexx@upi"
-QR_LINK = "https://graph.org/file/your_qr_link.jpg"
+UPI_ID = "prashant.kr0002@ybl"
+QR_LINK = "https://files.catbox.moe/keqsat.jpg"
 
 PREMIUM_PLANS = {
     "month": 99,
@@ -40,7 +40,7 @@ UPDATE_CHANNEL = "https://t.me/your_channel"
 LOGGER_GROUP = -1001234567890 
 
 # --- ᴍᴇᴅɪᴀ ᴜʀʟs ---
-START_IMG = "https://graph.org/file/your_start_image.jpg"
+START_IMG = "https://files.catbox.moe/a4etln.jpg"
 
 # --- ɢᴀᴍᴇ ᴄᴏɴsᴛᴀɴᴛs ---
 REVIVE_COST = 500
