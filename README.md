@@ -16,24 +16,31 @@
 
 ---
 
-## 🚀 ᴅᴇᴘʟᴏʏ ᴛᴏ ʜᴇʀᴏᴋᴜ
-Aap niche diye gaye button par click karke direct deploy kar sakte hain:
+## 🚀 ᴅᴇᴘʟᴏʏ ᴛᴏ ᴘʟᴀᴛғᴏʀᴍs
 
-<p align="center">
+### 1️⃣ Heroku
+<p align="left">
   <a href="https://heroku.com/deploy?template=https://github.com/rajayns42-design/Angel-">
-    <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku" width="200">
+    <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku" width="180">
+  </a>
+</p>
+
+### 2️⃣ Render (Free Hosting)
+<p align="left">
+  <a href="https://render.com/deploy?repo=https://github.com/rajayns42-design/Angel-">
+    <img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render" width="180">
   </a>
 </p>
 
 ---
 
 ## ⚡ ꜰᴇᴀᴛᴜʀᴇꜱ ᴛʜᴀᴛ ᴍᴀᴛᴛᴇʀ
-* 🩸 **ᴄʀɪᴍᴇ ᴡᴏʀʟᴅ:** Rob, Kill, Jail, aur Bounties ka system.
-* 🏦 **ʙᴀɴᴋɪɴɢ:** Safely store your black money in the Angel Bank.
-* 💍 **sᴏᴄɪᴀʟ:** Marriage, Divorce, aur Propose commands.
-* 🎰 **ᴄᴀsɪɴᴏ:** High-stakes gambling with Slots and Dice.
-* 🧠 **ᴀɪ ᴄʜᴀᴛ:** Integrated AI for smart conversations.
-* 📢 **ʟᴏɢɢᴇʀ:** Every action is tracked in your Logger Group.
+* 🩸 **ᴄʀɪᴍᴇ ᴡᴏʀʟᴅ:** Rob, Kill, Jail, aur Bounties ka system. [cite: 2026-02-04]
+* 🏦 **ʙᴀɴᴋɪɴɢ:** Safely store your black money in the Angel Bank. [cite: 2026-02-04]
+* 💍 **sᴏᴄɪᴀʟ:** Marriage, Divorce, aur Propose commands. [cite: 2026-02-04]
+* 🎰 **ᴄᴀsɪɴᴏ:** High-stakes gambling with Slots and Dice. [cite: 2026-02-04]
+* 🧠 **ᴀɪ ᴄʜᴀᴛ:** Integrated AI for smart conversations. [cite: 2026-02-04]
+* 📢 **ʟᴏɢɢᴇʀ:** Every action is tracked in your Logger Group. [cite: 2026-02-04]
 
 ---
 
@@ -42,23 +49,21 @@ Deploy karte waqt ye details bharna zaroori hai:
 
 | ᴋᴇʏ | ᴅᴇsᴄʀɪᴘᴛɪᴏɴ |
 | :--- | :--- |
-| `API_ID` | Get from my.telegram.org |
-| `API_HASH` | Get from my.telegram.org |
-| `BOT_TOKEN` | Get from @BotFather |
-| `OWNER_ID` | Your Telegram ID (ZEXX ID) |
-| `START_IMG` | Telegraph image URL for Start |
-| `SUPPORT_CHAT` | @love_bot_143 |
-| `LOGGER_GROUP` | Logs Group ID (-100...) |
+| `API_ID` | Get from my.telegram.org [cite: 2026-02-04] |
+| `API_HASH` | Get from my.telegram.org [cite: 2026-02-04] |
+| `BOT_TOKEN` | Get from @BotFather [cite: 2026-02-04] |
+| `OWNER_ID` | Your Telegram ID (ZEXX ID) [cite: 2026-02-04] |
+| `START_IMG` | Telegraph image URL for Start [cite: 2026-02-04] |
+| `SUPPORT_CHAT` | @love_bot_143 [cite: 2026-02-04] |
+| `LOGGER_GROUP` | Logs Group ID (-100...) [cite: 2026-02-04] |
 
 ---
 
 ## 📁 ᴘʀᴏᴊᴇᴄᴛ sᴛʀᴜᴄᴛᴜʀᴇ
-
-
-* `Angel.py` - Main Runner
-* `Dockerfile` - Container Logic
-* `heroku.yml` - Deployment Config
-* `Angel/plugins/` - Modular Commands
+* `Angel.py` - Main Runner [cite: 2026-02-04]
+* `Dockerfile` - Container Logic [cite: 2026-02-04]
+* `heroku.yml` - Deployment Config [cite: 2026-02-04]
+* `Angel/plugins/` - Modular Commands [cite: 2026-02-04]
 
 ---
 
