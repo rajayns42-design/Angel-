@@ -1,1 +1,35 @@
+# Python environment files
+.env
+config.env
+*.env
+
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local virtual environments
+venv/
+env/
+.venv/
+bin/
+lib/
+include/
+
+# Sensitive data and logs
+*.log
+logs/
+session.txt
+*.session
+*.session-journal
+
+# Database files
+*.db
+*.sqlite3
+
+# Deployment/OS specific
+.DS_Store
+.vscode/
+.idea/
+Thumbs.db
 
