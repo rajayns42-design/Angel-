@@ -14,6 +14,10 @@ MONGO_URL = os.environ.get("MONGO_URL", "your_mongodb_url_here")
 # --- ᴀɪ ᴄᴏɴғɪɢ (GROQ) ---
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "your_groq_api_key_here")
 
+# --- ᴜᴘsᴛʀᴇᴀᴍ ʀᴇᴘᴏ (For Updates) ---
+UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO", "https://github.com/yourusername/yourrepo")
+UPSTREAM_BRANCH = os.environ.get("UPSTREAM_BRANCH", "main")
+
 # --- ᴏᴡɴᴇʀ & ʙʀᴀɴᴅɪɴɢ ---
 OWNER_ID = int(os.environ.get("OWNER_ID", "123456789"))
 OWNER_USERNAME = "ZEXX" 
