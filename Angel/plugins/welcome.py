@@ -1,65 +1,51 @@
-import random
 from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
+from config import START_IMG, BOT_OWNER
 
-# --- SETTINGS ---
-WELCOME_IMG = "https://telegra.ph/file/your_image_url.jpg" # Apna mast wala image link dalo
-SUPPORT = "https://t.me/ZEXX_SUPPORT" # Apna support link
-line = "✨ ━━━━━━━━━━━━━━━ ✨"
-
-@Client.on_message(filters.command("welcome") & filters.group)
-async def welcome_toggle(client, message):
-    # Admin Check
-    user = await client.get_chat_member(message.chat.id, message.from_user.id)
-    if user.status not in ["administrator", "creator"]:
-        return await message.reply_text("<b>❌ ᴀᴅᴍɪɴ ᴏɴʟʏ ᴀᴄᴄᴇss!</b>")
-
-    if len(message.command) < 2:
-        return await message.reply_text("<b>⚠️ ᴜsᴀɢᴇ:</b>\n`/welcome on` | `/welcome off`")
-
-    state = message.command[1].lower()
-    if state == "on":
-        await message.reply_text(f"<b>✅ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇssᴀɢᴇs:</b> <code>ᴇɴᴀʙʟᴇᴅ</code>")
-    elif state == "off":
-        await message.reply_text(f"<b>❌ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇssᴀɢᴇs:</b> <code>ᴅɪsᴀʙʟᴇᴅ</code>")
+# Database ki jagah temporary status (Real DB ke liye MongoDB use karein)
+welcome_status = {}
 
 @Client.on_message(filters.new_chat_members)
-async def stylish_welcome(client, message):
-    for member in message.new_chat_members:
-        
-        # --- 🤖 BOT ENTERS GROUP ---
-        if member.id == (await client.get_me()).id:
-            adder = message.from_user.first_name
-            txt = (
-                f"<b>🌸 ᴀʀɪɢᴀᴛᴏ, {adder}!</b>\n"
-                f"{line}\n"
-                f"ᴛʜᴀɴᴋs ꜰᴏʀ ᴀᴅᴅɪɴɢ ᴍᴇ ɪɴ\n"
-                f"<b>📍 ᴄʜᴀᴛ:</b> <code>{message.chat.title}</code>\n\n"
-                f"🎁 <b>ꜰɪʀsᴛ ᴛɪᴍᴇ ʙᴏɴᴜs:</b>\n"
-                f"ᴛʏᴘᴇ `/claim` ᴛᴏ ɢᴇᴛ <b>𝟸,𝟶𝟶𝟶</b> ᴄᴏɪɴs!\n"
-                f"{line}\n"
-                f"ᴘᴏᴡᴇʀᴇᴅ ʙʏ: <b>ᴢᴇxx</b> 👑"
-            )
-            kb = InlineKeyboardMarkup([[InlineKeyboardButton("✨ sᴜᴘᴘᴏʀᴛ", url=SUPPORT)]])
-            
-            try: await message.reply_photo(photo=WELCOME_IMG, caption=txt, reply_markup=kb)
-            except: await message.reply_text(txt, reply_markup=kb)
+async def welcome_bot(client: Client, message: Message):
+    chat_id = message.chat.id
+    
+    # Check if welcome is ON or OFF (Default: ON)
+    if not welcome_status.get(chat_id, True):
+        return
 
-        # --- 👤 NEW USER JOINS ---
+    for user in message.new_chat_members:
+        TEXT = (
+            f"🩸 **𝐍𝐄𝐖 𝐁𝐋𝐎𝐎𝐃 𝐃𝐄𝐓𝐄𝐂𝐓𝐄𝐃** 🩸\n"
+            f"━━━━━━━━━━━━━━━━━━━━\n"
+            f"👤 **𝐇𝐞𝐥𝐥𝐨**, {user.mention} !\n\n"
+            f"ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ **{message.chat.title}**.\n"
+            f"ʏᴏᴜ ᴀʀᴇ ɴᴏᴡ ᴜɴᴅᴇʀ ᴛʜᴇ ᴘʀᴏᴛᴇᴄᴛɪᴏɴ\n"
+            f"ᴏғ ᴛʜᴇ **ᴀɴɢᴇʟ xʙ~** ᴍᴀғɪᴀ ғᴀᴍɪʟʏ.\n\n"
+            f"🛡️ **𝐑𝐔𝐋𝐄 :** ᴅᴏɴ'ᴛ ɢᴇᴛ ᴋɪʟʟᴇᴅ.\n"
+            f"👑 **𝐌𝐀𝐒𝐓𝐄𝐑 : {BOT_OWNER}** [cite: 2026-02-04]\n"
+            f"━━━━━━━━━━━━━━━━━━━━"
+        )
+        
+        if START_IMG:
+            await message.reply_photo(photo=START_IMG, caption=TEXT)
         else:
-            greetings = ["ʜᴇʟʟᴏ", "ʜɪɪɪ", "ᴡᴇʟᴄᴏᴍᴇ", "ᴋᴏɴ'ɴɪᴄʜɪᴡᴀ", "ᴀᴅᴀʙ"]
-            greet = random.choice(greetings)
-            mention = f"<a href='tg://user?id={member.id}'>{member.first_name}</a>"
-            
-            txt = (
-                f"<b>{greet}, {mention}! 👋</b>\n"
-                f"{line}\n"
-                f"ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ <b>{message.chat.title}</b>\n\n"
-                f"✨ ʜᴀᴠᴇ ᴀ ɢʀᴇᴀᴛ ᴛɪᴍᴇ ʜᴇʀᴇ!\n"
-                f"💡 ᴅᴏɴ'ᴛ ꜰᴏʀɢᴇᴛ ᴛᴏ `/register`!\n"
-                f"{line}\n"
-                f"🌷 <b>ᴇɴᴊᴏʏ ʏᴏᴜʀ sᴛᴀʏ!</b>"
-            )
-            
-            try: await message.reply_photo(photo=WELCOME_IMG, caption=txt)
-            except: await message.reply_text(txt)
+            await message.reply_text(TEXT)
+
+# --- 𝐎𝐍/𝐎𝐅𝐅 𝐂𝐎𝐍𝐓𝐑𝐎𝐋 (𝐀𝐝𝐦𝐢𝐧 𝐎𝐧𝐥𝐲) ---
+@Client.on_message(filters.command("welcome") & filters.group)
+async def toggle_welcome(client: Client, message: Message):
+    # Only Admin or ZEXX can change settings
+    if len(message.command) < 2:
+        return await message.reply_text("🩸 **𝐔𝐬𝐚𝐠𝐞:** `/welcome on` **or** `/welcome off`")
+    
+    chat_id = message.chat.id
+    state = message.command[1].lower()
+    
+    if state == "on":
+        welcome_status[chat_id] = True
+        await message.reply_text("✅ **𝐖𝐄𝐋𝐂𝐎𝐌𝐄 𝐒𝐘𝐒𝐓𝐄𝐌 𝐀𝐂𝐓𝐈𝐕𝐀𝐓𝐄𝐃**")
+    elif state == "off":
+        welcome_status[chat_id] = False
+        await message.reply_text("❌ **𝐖𝐄𝐋𝐂𝐎𝐌𝐄 𝐒𝐘𝐒𝐓𝐄𝐌 𝐃𝐄𝐀𝐂𝐓𝐈𝐕𝐀𝐓𝐄𝐃**")
+    else:
+        await message.reply_text("❗ **𝐈𝐧𝐯𝐚𝐥𝐢𝐝 𝐒𝐭𝐚𝐭𝐞! 𝐔𝐬𝐞 on/off.**")
