@@ -1,73 +1,87 @@
 from pyrogram import Client, filters
-import random
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from config import DIVORCE_COST, MARRIED_TAX_RATE, BOT_NAME
+# Maan lete hain aapka database module 'db' hai
+# from bot.database import db 
 
-# --- STORAGE (Fast Memory) ---
-marriages = {} 
-line = "✨ ══════════════════ ✨"
+# --- 💔 DIVORCE COMMAND ---
+@Client.on_message(filters.command("divorce") & filters.group)
+async def divorce_cmd(client: Client, message: Message):
+    user_id = message.from_user.id
+    
+    # Database check (Example logic)
+    # partner = await db.get_partner(user_id)
+    partner = None # Testing ke liye
+    
+    if not partner:
+        return await message.reply_text("❌ **Aap pehle se hi single hain!**\nDivorce ke liye shaadi shuda hona zaroori hai.")
 
-@Client.on_message(filters.command(["marry", "marriage"]) & filters.group)
-async def marry_user(client, message):
+    text = (
+        f"💔 **ᴅɪᴠᴏʀᴄᴇ ᴘᴀᴘᴇʀs**\n\n"
+        f"Aap apne partner se alag hona chahte hain?\n"
+        f"⚠️ **ᴄᴏsᴛ:** `{DIVORCE_COST}` coins\n\n"
+        f"Kya aapko yakeen hai?"
+    )
+    
+    buttons = InlineKeyboardMarkup([
+        [
+            InlineKeyboardButton("✅ ʏᴇs, ɪ'ᴍ sᴜʀᴇ", callback_data=f"div_confirm_{user_id}"),
+            InlineKeyboardButton("❌ ᴄᴀɴᴄᴇʟ", callback_data=f"div_cancel_{user_id}")
+        ]
+    ])
+    
+    await message.reply_text(text, reply_markup=buttons)
+
+# --- 💍 PROPOSE COMMAND ---
+@Client.on_message(filters.command("propose") & filters.group)
+async def propose_cmd(client: Client, message: Message):
     if not message.reply_to_message:
-        return await message.reply_text("<b>💍 Kise propose karna hai? Reply toh karo!</b>")
-
+        return await message.reply_text("❌ Kisi ko propose karne ke liye unke message par reply karein!")
+    
     proposer = message.from_user
     target = message.reply_to_message.from_user
 
     if proposer.id == target.id:
-        return await message.reply_text("<b>😂 Khud se shadi? Itne bure din aa gaye?</b>")
+        return await message.reply_text("🤨 Khud se shaadi nahi kar sakte, Capo!")
 
-    if target.is_bot:
-        return await message.reply_text("<b>🤖 Main ek AI hoon, meri shadi ZEXX se fix ho chuki hai!</b>")
-
-    # Shadi ka logic
-    marriages[proposer.id] = target.first_name
-    marriages[target.id] = proposer.first_name
-
-    await message.reply_text(
-        f"<b>🎊 ᴍᴀʀʀɪᴀɢᴇ sᴇᴛᴛʟᴇᴅ! 🎊</b>\n"
-        f"{line}\n"
-        f"🤵 <b>ɢʀᴏᴏᴍ:</b> {proposer.first_name}\n"
-        f"👰 <b>ʙʀɪᴅᴇ:</b> {target.first_name}\n"
-        f"{line}\n"
-        f"<i>ᴀɴɢᴇʟ ɪs sᴏ ʜᴀᴘᴘʏ ꜰᴏʀ ʏᴏᴜ ʙᴏᴛʜ! ❤️‍🔥</i>\n"
-        f"<b>sᴛᴀᴛᴜs:</b> ᴊᴜsᴛ ᴍᴀʀʀɪᴇᴅ! 💍"
+    text = (
+        f"💍 **ᴍᴀʀʀɪᴀɢᴇ ᴘʀᴏᴘᴏsᴀʟ**\n\n"
+        f"Hey {target.mention},\n"
+        f"**{proposer.first_name}** ne aapko propose kiya hai!\n\n"
+        f"✨ **ʙᴇɴᴇғɪᴛ:** Married couples ko tax mein `{int(MARRIED_TAX_RATE * 100)}%` ki chhoot milti hai!"
+    )
+    
+    buttons = InlineKeyboardMarkup([
+        [
+            InlineKeyboardButton("❤️ ᴀᴄᴄᴇᴘᴛ", callback_data=f"mar_acc_{target.id}_{proposer.id}"),
+            InlineKeyboardButton("💔 ʀᴇᴊᴇᴄᴛ", callback_data=f"mar_rej_{target.id}")
+        ]
+    ])
+    
+    await message.reply_photo(
+        photo="https://graph.org/file/your_propose_image.jpg", # Config se image le sakte hain
+        caption=text,
+        reply_markup=buttons
     )
 
-@Client.on_message(filters.command("divorce") & filters.group)
-async def divorce_user(client, message):
-    user_id = message.from_user.id
-    if user_id not in marriages:
-        return await message.reply_text("<b>🤔 Pehle shadi toh kar lo, phir divorce maangna!</b>")
+# --- CALLBACK HANDLERS ---
+@Client.on_callback_query(filters.regex(r"div_confirm_"))
+async def div_callback(client: Client, query: CallbackQuery):
+    user_id = int(query.data.split("_")[2])
+    if query.from_user.id != user_id:
+        return await query.answer("Ye aapke liye nahi hai!", show_alert=True)
     
-    partner = marriages[user_id]
-    del marriages[user_id]
-    # Partner ka record bhi clear karna agar exists ho
-    
-    await message.reply_text(
-        f"<b>💔 ᴅɪᴠᴏʀᴄᴇ ᴀʟᴇʀᴛ 💔</b>\n"
-        f"{line}\n"
-        f"<b>{message.from_user.first_name}</b> ne <b>{partner}</b> se talaq le liya!\n"
-        f"<i>sɪɴɢʟᴇ ʟɪꜰᴇ ɪs ʙᴇsᴛ, ʜᴀɪ ɴᴀ? 😉</i>\n"
-        f"{line}"
-    )
+    # Logic: Database se partner remove karo aur coins deduct karo
+    await query.message.edit_text(f"💔 **ᴅɪᴠᴏʀᴄᴇ sᴜᴄᴄᴇssғᴜʟ!**\n\nAap ab single hain. `{DIVORCE_COST}` coins kaat liye gaye hain.")
 
-@Client.on_message(filters.command("couple") & filters.group)
-async def couple_of_day(client, message):
-    # Group ke random users select karna (Fast logic)
-    all_members = []
-    async for member in client.get_chat_members(message.chat.id, limit=50):
-        if not member.user.is_bot:
-            all_members.append(member.user.first_name)
+@Client.on_callback_query(filters.regex(r"mar_acc_"))
+async def mar_callback(client: Client, query: CallbackQuery):
+    data = query.data.split("_")
+    target_id = int(data[2])
+    proposer_id = int(data[3])
     
-    if len(all_members) < 2:
-        return await message.reply_text("<b>⚠️ Group mein log kam hain!</b>")
-
-    c1, c2 = random.sample(all_members, 2)
+    if query.from_user.id != target_id:
+        return await query.answer("Sirf wahi accept kar sakta hai jise propose kiya gaya hai!", show_alert=True)
     
-    await message.reply_text(
-        f"<b>💞 ᴄᴏᴜᴘʟᴇ ᴏꜰ ᴛʜᴇ ᴅᴀʏ 💞</b>\n"
-        f"{line}\n"
-        f"👩‍❤️‍👨 <b>{c1}</b>  +  <b>{c2}</b>\n\n"
-        f"<i>Ye jodi toh Rab ne bana di! ✨</i>\n"
-        f"{line}"
-    )
+    # Logic: Database mein dono ko marry kar do
+    await query.message.edit_text(f"🎊 **ᴄᴏɴɢʀᴀᴛᴜʟᴀᴛɪᴏɴs!**\n\nAb aap dono officially married hain! ❤️")
