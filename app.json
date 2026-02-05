@@ -17,6 +17,11 @@
       "description": "Get this from @BotFather",
       "required": true
     },
+    "GROQ_API_KEY": {
+      "description": "Your Groq API Key for the AI Chatbot feature.",
+      "required": true,
+      "value": ""
+    },
     "OWNER_ID": {
       "description": "Your Telegram User ID.",
       "required": true,
@@ -49,7 +54,7 @@
     },
     "MONGO_URL": {
       "description": "Your MongoDB Database URL for saving data.",
-      "required": false
+      "required": true
     }
   },
   "formation": {
