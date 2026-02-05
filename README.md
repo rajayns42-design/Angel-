@@ -7,7 +7,7 @@
 <p align="center">
   <img src="https://img.shields.io/github/stars/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME?style=for-the-badge&color=red" alt="Stars">
   <img src="https://img.shields.io/github/forks/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME?style=for-the-badge&color=black" alt="Forks">
-  <img src="https://img.shields.io/github/license/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME?style=for-the-badge&color=red" alt="License">
+  <img src="https://img.shields.io/github/license/angelvv2/Angelv2?style=for-the-badge&color=red" alt="License">
 </p>
 
 <p align="center">
@@ -20,7 +20,7 @@
 Aap niche diye gaye button par click karke direct deploy kar sakte hain:
 
 <p align="center">
-  <a href="https://heroku.com/deploy?template=https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME">
+  <a href="https://heroku.com/deploy?template=https://github.com/rajayns42-design/Angel-">
     <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku" width="200">
   </a>
 </p>
@@ -47,7 +47,7 @@ Deploy karte waqt ye details bharna zaroori hai:
 | `BOT_TOKEN` | Get from @BotFather |
 | `OWNER_ID` | Your Telegram ID (ZEXX ID) |
 | `START_IMG` | Telegraph image URL for Start |
-| `SUPPORT_CHAT` | @ZEXX_SUPPORT |
+| `SUPPORT_CHAT` | @love_bot_143 |
 | `LOGGER_GROUP` | Logs Group ID (-100...) |
 
 ---
@@ -65,7 +65,7 @@ Deploy karte waqt ye details bharna zaroori hai:
 ## 👑 ᴄʀᴇᴅɪᴛs & sᴜᴘᴘᴏʀᴛ
 <p align="center">
   <b>ᴍᴀsᴛᴇʀᴇᴅ ʙʏ : <a href="https://t.me/ZEXX_OWNER">ᴢᴇxx</a></b><br>
-  <a href="https://t.me/ZEXX_UPDATES">📢 ᴜᴘᴅᴀᴛᴇs</a> | <a href="https://t.me/ZEXX_SUPPORT">✨ sᴜᴘᴘᴏʀᴛ</a>
+  <a href="https://t.me/love_bot_143">📢 ᴜᴘᴅᴀᴛᴇs</a> | <a href="https://t.me/Love_Ki_Duniyaa">✨ sᴜᴘᴘᴏʀᴛ</a>
 </p>
 
 ---
