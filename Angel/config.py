@@ -11,20 +11,32 @@ BOT_TOKEN = os.environ.get("BOT_TOKEN", "your_bot_token_here")
 # --- ᴅᴀᴛᴀʙᴀsᴇ ---
 MONGO_URL = os.environ.get("MONGO_URL", "your_mongodb_url_here")
 
+# --- ᴀɪ ᴄᴏɴғɪɢ (GROQ) ---
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "your_groq_api_key_here")
+
 # --- ᴏᴡɴᴇʀ & ʙʀᴀɴᴅɪɴɢ ---
 OWNER_ID = int(os.environ.get("OWNER_ID", "123456789"))
-OWNER_USERNAME = "ZEXX" # [cite: 2026-02-04]
-BOT_OWNER = "ZEXX" # [cite: 2026-02-04]
+OWNER_USERNAME = "ZEXX" 
+BOT_OWNER = "ZEXX" 
 BOT_NAME = "📡 Angel xẞ~"
+
+# --- ᴘᴀʏᴍᴇɴᴛ & ᴘʀᴇᴍɪᴜᴍ ---
+UPI_ID = "zexx@upi"
+QR_LINK = "https://graph.org/file/your_qr_link.jpg"
+
+PREMIUM_PLANS = {
+    "month": 99,
+    "year": 999,
+    "lifetime": 1499
+}
 
 # --- ᴄʜᴀɴɴᴇʟs & ʟᴏɢɢᴇʀ ---
 SUPPORT_CHAT = "https://t.me/your_support" 
 UPDATE_CHANNEL = "https://t.me/your_channel" 
-LOGGER_GROUP = -1001234567890 # Logs yahan aayenge
+LOGGER_GROUP = -1001234567890 
 
 # --- ᴍᴇᴅɪᴀ ᴜʀʟs ---
 START_IMG = "https://graph.org/file/your_start_image.jpg"
-QR_LINK = "https://graph.org/file/your_qr_link.jpg"
 
 # --- ɢᴀᴍᴇ ᴄᴏɴsᴛᴀɴᴛs ---
 REVIVE_COST = 500
@@ -43,7 +55,7 @@ MIN_CLAIM_MEMBERS = 100
 
 # --- 🛒 sʜᴏᴘ ɪᴛᴇᴍs (Full 60+ Items) ---
 SHOP_ITEMS = [
-    # --- WEAPONS (Damage Buff) ---
+    # --- WEAPONS ---
     {"id": "stick", "name": "🪵 Stick", "price": 500, "type": "weapon", "buff": 0.01},
     {"id": "brick", "name": "🧱 Brick", "price": 1000, "type": "weapon", "buff": 0.02},
     {"id": "slingshot", "name": "🏹 Slingshot", "price": 2000, "type": "weapon", "buff": 0.03},
@@ -64,7 +76,7 @@ SHOP_ITEMS = [
     {"id": "laser", "name": "⚡ Laser", "price": 800000, "type": "weapon", "buff": 0.59},
     {"id": "deathnote", "name": "📓 Death Note", "price": 5000000, "type": "weapon", "buff": 0.60},
 
-    # --- ARMOR (Block Chance) ---
+    # --- ARMOR ---
     {"id": "paper", "name": "📰 Newspaper", "price": 500, "type": "armor", "buff": 0.01},
     {"id": "cardboard", "name": "📦 Cardboard", "price": 1000, "type": "armor", "buff": 0.02},
     {"id": "cloth", "name": "👕 Cloth", "price": 2500, "type": "armor", "buff": 0.05},
@@ -80,7 +92,7 @@ SHOP_ITEMS = [
     {"id": "force", "name": "🔮 Forcefield", "price": 3000000, "type": "armor", "buff": 0.55},
     {"id": "plot", "name": "🎬 Plot Armor", "price": 10000000, "type": "armor", "buff": 0.60},
 
-    # --- FLEX (Luxury Items) ---
+    # --- FLEX ITEMS ---
     {"id": "cookie", "name": "🍪 Cookie", "price": 100, "type": "flex", "buff": 0},
     {"id": "coffee", "name": "☕ Starbucks", "price": 300, "type": "flex", "buff": 0},
     {"id": "rose", "name": "🌹 Rose", "price": 500, "type": "flex", "buff": 0},
@@ -92,7 +104,6 @@ SHOP_ITEMS = [
     {"id": "macbook", "name": "💻 MacBook M3", "price": 50000, "type": "flex", "buff": 0},
     {"id": "gucci", "name": "👜 Gucci Bag", "price": 75000, "type": "flex", "buff": 0},
     {"id": "rolex", "name": "⌚ Rolex", "price": 100000, "type": "flex", "buff": 0},
-    {"id": "diamond_ring", "name": "💎 Solitaire", "price": 250000, "type": "flex", "buff": 0},
     {"id": "tesla", "name": "🚗 Tesla", "price": 400000, "type": "flex", "buff": 0},
     {"id": "lambo", "name": "🏎️ Lambo", "price": 800000, "type": "flex", "buff": 0},
     {"id": "heli", "name": "🚁 Helicopter", "price": 1500000, "type": "flex", "buff": 0},
@@ -106,11 +117,3 @@ SHOP_ITEMS = [
     {"id": "galaxy", "name": "🌌 Milky Way", "price": 5000000000, "type": "flex", "buff": 0},
     {"id": "blackhole", "name": "🕳️ Black Hole", "price": 9999999999, "type": "flex", "buff": 0},
 ]
-
-# --- ᴘʀᴇᴍɪᴜᴍ ᴘʟᴀɴs ---
-PREMIUM_PLANS = {
-    "month": 99,
-    "year": 999,
-    "lifetime": 1499
-}
-UPI_ID = "zexx@upi"
