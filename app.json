@@ -40,7 +40,17 @@
     "OWNER_USERNAME": {
       "description": "Your Telegram Username (without @).",
       "required": true,
-      "value": "ZEXX_OWNER"
+      "value": "ZEXX"
+    },
+    "UPI_ID": {
+      "description": "Your UPI ID for payments (e.g., zexx@upi).",
+      "required": true,
+      "value": "zexx@upi"
+    },
+    "QR_LINK": {
+      "description": "Telegraph link of your Payment QR Code image.",
+      "required": true,
+      "value": "https://graph.org/file/your_qr_link.jpg"
     },
     "SUPPORT_CHAT": {
       "description": "Your Support Group link or username.",
