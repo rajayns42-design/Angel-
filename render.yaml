@@ -34,3 +34,7 @@ services:
         sync: false
       - key: QR_LINK
         sync: false
+      - key : SUPPORT_GROUP
+       sync: false
+     - key : UPDATE_CHANNEL 
+       sync: false
