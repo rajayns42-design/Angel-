@@ -18,15 +18,15 @@ BOT_OWNER = "ZEXX" # [cite: 2026-02-04]
 BOT_NAME = "📡 Angel xẞ~"
 
 # --- ᴄʜᴀɴɴᴇʟs & ʟᴏɢɢᴇʀ ---
-SUPPORT_CHAT = "https://t.me/your_support" # Apna link dalo
-UPDATE_CHANNEL = "https://t.me/your_channel" # Apna link dalo
+SUPPORT_CHAT = "https://t.me/your_support" 
+UPDATE_CHANNEL = "https://t.me/your_channel" 
 LOGGER_GROUP = -1001234567890 # Logs yahan aayenge
 
 # --- ᴍᴇᴅɪᴀ ᴜʀʟs ---
 START_IMG = "https://graph.org/file/your_start_image.jpg"
 QR_LINK = "https://graph.org/file/your_qr_link.jpg"
 
-# --- ɢᴀᴍᴇ ᴄᴏɴsᴛᴀɴᴛs (As per your Screenshot) ---
+# --- ɢᴀᴍᴇ ᴄᴏɴsᴛᴀɴᴛs ---
 REVIVE_COST = 500
 PROTECT_1D_COST = 1000
 PROTECT_2D_COST = 1800
@@ -41,7 +41,7 @@ AUTO_REVIVE_HOURS = 6
 AUTO_REVIVE_BONUS = 200
 MIN_CLAIM_MEMBERS = 100
 
-# --- 🛒 sʜᴏᴘ ɪᴛᴇᴍs (Full 60+ Items from Screenshot) ---
+# --- 🛒 sʜᴏᴘ ɪᴛᴇᴍs (Full 60+ Items) ---
 SHOP_ITEMS = [
     # --- WEAPONS (Damage Buff) ---
     {"id": "stick", "name": "🪵 Stick", "price": 500, "type": "weapon", "buff": 0.01},
