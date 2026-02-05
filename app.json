@@ -22,6 +22,16 @@
       "required": true,
       "value": ""
     },
+    "UPSTREAM_REPO": {
+      "description": "Your GitHub Repository Link for Updates.",
+      "required": true,
+      "value": "https://github.com/yourusername/yourrepo"
+    },
+    "UPSTREAM_BRANCH": {
+      "description": "The Branch Name (usually 'main' or 'master').",
+      "required": true,
+      "value": "main"
+    },
     "OWNER_ID": {
       "description": "Your Telegram User ID.",
       "required": true,
