@@ -1,19 +1,20 @@
-# Python ka stable version use kar rahe hain
 FROM python:3.10-slim-buster
 
-# System dependencies install karna (speed ke liye)
+# Fix for expired Debian repositories
+RUN sed -i 's/deb.debian.org/archive.debian.org/g' /etc/apt/sources.list && \
+    sed -i 's|security.debian.org/debian-security|archive.debian.org/debian-security|g' /etc/apt/sources.list && \
+    sed -i '/stretch-updates/d' /etc/apt/sources.list
+
 RUN apt-get update && apt-get upgrade -y && \
-    apt-get install -y --no-install-recommends gcc libffi-dev musl-dev ffmpeg python3-pip
+    apt-get install -y --no-install-recommends \
+    gcc \
+    libffi-dev \
+    musl-dev \
+    ffmpeg \
+    python3-pip
 
-# Working directory set kar rahe hain
+COPY . /app
 WORKDIR /app
-
-# Requirements copy karke install karna
-COPY requirements.txt .
 RUN pip3 install --no-cache-dir -U -r requirements.txt
 
-# Baaki saari files copy karna
-COPY . .
-
-# Bot ko run karne ki command (Angel.py use kar rahe hain)
 CMD ["python3", "Angel.py"]
