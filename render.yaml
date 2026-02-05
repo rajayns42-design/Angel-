@@ -1,0 +1,36 @@
+services:
+  - type: worker
+    name: angel-xb-mafia
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python3 Angel.py
+    envVars:
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: BOT_TOKEN
+        sync: false
+      - key: MONGO_URL
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: OWNER_ID
+        sync: false
+      - key: OWNER_USERNAME
+        value: ZEXX
+      - key: BOT_OWNER
+        value: ZEXX
+      - key: UPSTREAM_REPO
+        value: https://github.com/rajayns42-design/Angel-
+      - key: UPSTREAM_BRANCH
+        value: main
+      - key: LOGGER_GROUP
+        sync: false
+      - key: START_IMG
+        sync: false
+      - key: UPI_ID
+        sync: false
+      - key: QR_LINK
+        sync: false
