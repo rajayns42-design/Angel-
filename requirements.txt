@@ -3,9 +3,3 @@ tgcrypto
 flask
 requests
 python-dotenv
-motor
-pymongo
-hachoir
-aiohttp
-aiofiles
-pillow
