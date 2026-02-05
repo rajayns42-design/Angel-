@@ -26,6 +26,10 @@ services:
         value: https://github.com/rajayns42-design/Angel-
       - key: UPSTREAM_BRANCH
         value: main
+      - key: SUPPORT_CHAT
+        value: https://t.me/Love_Ki_Duniyaa
+      - key: UPDATE_CHANNEL
+        value: https://t.me/love_bot_143
       - key: LOGGER_GROUP
         sync: false
       - key: START_IMG
@@ -34,7 +38,3 @@ services:
         sync: false
       - key: QR_LINK
         sync: false
-      - key : SUPPORT_GROUP
-       sync: false
-     - key : UPDATE_CHANNEL 
-       sync: false
