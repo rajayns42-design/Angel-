@@ -7,11 +7,7 @@ RUN sed -i 's/deb.debian.org/archive.debian.org/g' /etc/apt/sources.list && \
 
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
-    gcc \
-    libffi-dev \
-    musl-dev \
-    ffmpeg \
-    python3-pip
+    gcc libffi-dev musl-dev ffmpeg python3-pip
 
 COPY . /app
 WORKDIR /app
